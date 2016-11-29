@@ -26,14 +26,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onLoadMore(int page, int totalItemsCount) {
                 loadUsersFromDB(dbStartPosition, DEFAULT_MAX_ELEMENTS_IN_MEMORY);
-                Log.e("onLoadMore", "TRUE");
                 return true;
             }
         });
         ArrayList<UserObj> usersList = new ArrayList<>();
         adapter = new UsersAdapter(this, usersList);
         usersListView.setAdapter(adapter);
-        Log.e("onCreate", "TRUE");
         loadUsersFromDB(dbStartPosition, DEFAULT_MAX_ELEMENTS_IN_MEMORY);
     }
 

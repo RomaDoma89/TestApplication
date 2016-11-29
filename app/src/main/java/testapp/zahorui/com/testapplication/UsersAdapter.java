@@ -7,14 +7,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 
 /**
@@ -41,31 +36,23 @@ public class UsersAdapter extends ArrayAdapter<UserObj> {
     public int getCount() {
         return count;
     }
-
     @Override
     public UserObj getItem(int position) {
         return users.get(position);
     }
-
     @Override
     public long getItemId(int position) {
         return position;
     }
-
     @NonNull
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-
         if (convertView == null) {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(R.layout.user_item, parent, false);
         }
-
-            ((TextView) convertView.findViewById(R.id.first_name_tv)).setText(firstNames.get(position));
-            ((TextView) convertView.findViewById(R.id.last_name_tv)).setText(lastNames.get(position));
-            Log.e("UserObj", "null");
-
-
+        ((TextView) convertView.findViewById(R.id.first_name_tv)).setText(firstNames.get(position));
+        ((TextView) convertView.findViewById(R.id.last_name_tv)).setText(lastNames.get(position));
         return convertView;
     }
 
@@ -77,6 +64,5 @@ public class UsersAdapter extends ArrayAdapter<UserObj> {
             lastNames.add(user.getLastName());
         }
         notifyDataSetChanged();
-        Log.e("users", String.valueOf(users.size()));
     }
 }
